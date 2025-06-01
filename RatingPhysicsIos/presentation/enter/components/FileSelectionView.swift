@@ -12,6 +12,7 @@ struct FileSelectionView: View {
             Text(String(localized: "file_label") + (fileName == nil ? " \(String(localized: "file_extenstions_label"))" : " (\(fileName!))"))
                 .font(.headline)
                 .padding(.bottom, 4)
+                .multilineTextAlignment(.center)
                 .errorStyle(!isValid)
             
             Button(String(localized: "select_label")) {

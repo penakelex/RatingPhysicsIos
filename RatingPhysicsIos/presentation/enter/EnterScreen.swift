@@ -12,7 +12,10 @@ struct EnterScreen: View {
     
     var body: some View {
         VStack(alignment: .center) {
-            DeveloperContactView()
+            TableDeveloperView()
+                .padding(.bottom, 2)
+        
+            AppDeveloperContactView()
                 .padding(.bottom, 12)
 
             PasswordInputView(
@@ -47,8 +50,7 @@ struct EnterScreen: View {
         .padding(.horizontal)
         .onAppear {
             if let (password, fileURL) = savedData {
-                viewModel.setSavedData(password: password, fileURL: fileURL)
-            }
+                viewModel.setSavedData(password: password, fileURL: fileURL)           }
         }
     }
 }

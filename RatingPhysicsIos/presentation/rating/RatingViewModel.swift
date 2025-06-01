@@ -4,6 +4,7 @@ extension RatingScreen {
     @MainActor class RatingViewModel : ObservableObject {
         @Published private(set) var data = DataState.loading
         private(set) var ratingData: RatingData!
+        private(set) var fileData: Data?
         
         func load(useCases: RatingUseCases, password: UInt32, fileURL: URL, type: CipheredFileType) {
             Task {
@@ -16,6 +17,8 @@ extension RatingScreen {
                         self.data = DataState.serverInaccessible
                     case .invalidPassword:
                         self.data = DataState.noStudentData
+                    case.invalidFile:
+                        self.data = DataState.invalidFile
                     }
                 }
             }

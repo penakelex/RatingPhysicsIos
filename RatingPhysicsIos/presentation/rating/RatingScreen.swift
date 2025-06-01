@@ -35,6 +35,10 @@ struct RatingScreen : View {
                 ZStack(alignment: .center) {
                     Text(String(localized: "server_inaccessible_label"))
                 }
+            case.invalidFile:
+                ZStack(alignment: .center) {
+                    Text(String(localized: "invalid_file_label"))
+                }
             }
         }
         .padding(.horizontal)

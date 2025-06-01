@@ -5,15 +5,16 @@ private let BASE_URL = "http://45.90.46.187:8000/rating_physics"
 
 class RatingRepositoryImplementation : RatingRepository {
     func getRatingDataByPassword(password: UInt32, fileURL: URL, fileType: CipheredFileType) async throws -> RatingData {
+        guard let fileData = (try? Data(contentsOf: fileURL)) else {
+            throw GetRatingError.invalidFile
+        }
+        
         do {
-            let data = try Data(contentsOf: fileURL)
-            
             return try await AF.upload(
                 multipartFormData: { multipartFormData in
                     multipartFormData.append(
-                        data,
+                        fileData,
                         withName: "file",
-                        fileName: fileURL.lastPathComponent,
                         mimeType: fileType.mimeType()
                     )
                     multipartFormData.append(

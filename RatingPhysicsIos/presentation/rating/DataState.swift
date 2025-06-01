@@ -2,5 +2,6 @@ enum DataState {
     case loading,
          loadded,
          noStudentData,
-         serverInaccessible
+         serverInaccessible,
+         invalidFile
 }

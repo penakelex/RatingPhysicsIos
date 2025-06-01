@@ -2,7 +2,7 @@ import SwiftUI
 
 private let TELEGRAM_URL = "https://t.me/penakelex"
 
-struct DeveloperContactView: View {
+struct AppDeveloperContactView: View {
     var body: some View {
         Button(action: {
             if let url = URL(string: TELEGRAM_URL) {
@@ -10,10 +10,10 @@ struct DeveloperContactView: View {
             }
         }) {
             HStack {
-                Text(String(localized: "contact_developer_label"))
+                Text(String(localized: "contact_app_developer_label"))
                     .font(.system(size: 14))
                     .padding(.trailing, 2)
-                Text(String(localized: "developer_name_label"))
+                Text(String(localized: "app_developer_name_label"))
                     .font(.system(size: 12))
                     .fontWeight(.light)
                 
@@ -29,6 +29,6 @@ struct DeveloperContactView: View {
 
 struct DeveloperContactView_Previews: PreviewProvider {
     static var previews: some View {
-        DeveloperContactView()
+        AppDeveloperContactView()
     }
 }

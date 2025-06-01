@@ -1,6 +1,7 @@
 import Foundation
 
 enum GetRatingError: Error {
-    case canNotAccessServer
-    case invalidPassword
+    case canNotAccessServer,
+         invalidPassword,
+         invalidFile
 }

@@ -18,6 +18,7 @@ struct PasswordInputView: View {
                 .onChange(of: password) { newPassword in
                     isCorrect = isPasswordCorrect(newPassword)
                 }
+            
         }
     }
 }

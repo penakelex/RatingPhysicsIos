@@ -5,7 +5,7 @@ extension EnterScreen {
         @Published var password = ""
         @Published var isPasswordCorrect = true
         
-        private(set) var fileURL: URL?
+        private(set) var fileURL: URL? = nil
         @Published private(set) var fileName: String? = nil
         @Published var isFileValid = true
         
@@ -29,7 +29,7 @@ extension EnterScreen {
         func validateData() -> Bool {
             var isPasswordCorrect = true
             
-            if password.count != 4 && password.count != 5
+            if password.count < 3 || password.count > 5
                 || !password.allSatisfy( { symbol in symbol.isNumber })
             {
                 isPasswordCorrect = false
